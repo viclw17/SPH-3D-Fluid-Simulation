@@ -5,13 +5,16 @@
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
 #endif
 
 #include "VEC3F.h"
 #include "VEC3D.h"
 #include <vector>
+
+#ifndef M_PI
+#define M_PI (3.14159265358979323846)
+#endif
+
 
 using namespace std;
 

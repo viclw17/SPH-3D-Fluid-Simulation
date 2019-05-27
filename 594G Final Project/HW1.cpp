@@ -8,14 +8,12 @@
 
 
 #include <cstdlib>
-#include <sys/time.h>
+//#include <sys/time.h>
 
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
 #endif
 
 #include "glvu.h"
@@ -304,6 +302,8 @@ int main(int argc, char** argv)
   
   return 0;
 }
+
+
 
 static int      ss, sms;
 

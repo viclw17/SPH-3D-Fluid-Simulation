@@ -492,7 +492,7 @@ void PARTICLE_SYSTEM::calculateAcceleration() {
           f_gravity = gravityVector * particle.density(),
           colorFieldNormal;
           
-          double colorFieldLaplacian;
+          double colorFieldLaplacian = 0;
                     
           // now iteratate through neighbors
           
