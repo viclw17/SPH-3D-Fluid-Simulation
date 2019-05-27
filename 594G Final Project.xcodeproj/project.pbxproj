@@ -57,6 +57,7 @@
 		30E4027F15092C0800480976 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		30E4028115092C0D00480976 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		30E4028315092D1C00480976 /* glvu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = glvu.cpp; path = "594G Final Project/glvu/glvu.cpp"; sourceTree = "<group>"; };
+		99555DE3229BB2BE0003AD3B /* glvu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glvu.h; path = "594G Final Project/glvu/glvu.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 		30701D1814F85942006A9FC1 = {
 			isa = PBXGroup;
 			children = (
+				99555DE3229BB2BE0003AD3B /* glvu.h */,
 				30E4028315092D1C00480976 /* glvu.cpp */,
 				30E4028115092C0D00480976 /* Cocoa.framework */,
 				30E4027F15092C0800480976 /* Accelerate.framework */,
@@ -103,6 +105,7 @@
 				30701D5114F8C1C9006A9FC1 /* FIELD_3D.cpp */,
 				30701D4B14F8BA5D006A9FC1 /* FIELD_2D.h */,
 				30701D4914F8BA57006A9FC1 /* FIELD_2D.cpp */,
+				30232143150EAC9500CEB2E8 /* HW1.h */,
 				30701D3014F85977006A9FC1 /* HW1.cpp */,
 				30701D3114F85977006A9FC1 /* PARTICLE_SYSTEM.cpp */,
 				30701D3214F85977006A9FC1 /* PARTICLE_SYSTEM.h */,
@@ -113,7 +116,6 @@
 				30701D3714F85977006A9FC1 /* WALL.cpp */,
 				30701D3814F85977006A9FC1 /* WALL.h */,
 				30701D2914F85942006A9FC1 /* _94G_Final_Project.1 */,
-				30232143150EAC9500CEB2E8 /* HW1.h */,
 			);
 			path = "594G Final Project";
 			sourceTree = "<group>";

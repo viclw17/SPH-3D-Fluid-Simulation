@@ -4,7 +4,7 @@
 
 
 unsigned int iteration = 0;
-int scenario;
+int scenario = 0; // 0: dam
 
 ///////////////////////////////////////////////////////////////////////////////
 // Constructor
@@ -16,30 +16,21 @@ _isGridVisible(false), surfaceThreshold(0.01), gravityVector(0.0,GRAVITY_ACCELER
 }
 
 void PARTICLE_SYSTEM::loadScenario(int newScenario) {
-  
   scenario = newScenario;
   
   // remove all particles
-  
-  if (grid) {
+  if (grid)
     delete grid;
-    
-  }
-    
   _walls.clear();
   
-  
   // reset params
-  
   PARTICLE::count = 0;
-  
   iteration = 0;
     
   
   if (scenario == SCENARIO_DAM) {
     
     // create long grid
-    
     boxSize.x = BOX_SIZE*2.0;
     boxSize.y = BOX_SIZE;
     boxSize.z = BOX_SIZE/2.0;
@@ -49,6 +40,7 @@ void PARTICLE_SYSTEM::loadScenario(int newScenario) {
     int gridZRes = (int)ceil(boxSize.z/h);
     
     grid = new FIELD_3D(gridXRes, gridYRes, gridZRes);
+    // 
     
     
     // add walls 

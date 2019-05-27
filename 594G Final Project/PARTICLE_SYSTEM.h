@@ -11,7 +11,7 @@
 
 #include "HW1.h"
 
-#define h 0.0457 //0.02 //0.045
+#define h 0.05 //0.02 //0.045
 
 #define GAS_STIFFNESS 3.0 //20.0 // 461.5  // Nm/kg is gas constant of water vapor
 #define REST_DENSITY 998.29 // kg/m^3 is rest density of water particle
