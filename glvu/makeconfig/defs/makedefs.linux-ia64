@@ -1,0 +1,9 @@
+###########################################################################
+# Linux IA64 (gait1.cs.unc.edu) programs
+###########################################################################
+CC=/opt/intel/compiler70/ia64/bin/ecc
+CXX=/opt/intel/compiler70/ia64/bin/ecc
+CFLAGS += -I/opt/intel/compiler70/ia64/include -I/opt/intel/compiler70/ia64/substitute_headers
+CXXFLAGS += -I/opt/intel/compiler70/ia64/include -I/opt/intel/compiler70/ia64/substitute_headers
+#LDFLAGS += -L/usr/lib/gcc-lib/ia64-redhat-linux/2.96 -lgcc
+

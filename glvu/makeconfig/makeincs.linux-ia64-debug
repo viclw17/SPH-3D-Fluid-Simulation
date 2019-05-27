@@ -1,0 +1,6 @@
+##############################################################################
+# LINUX IA64-DEBUG MAKE OVERRIDE INCLUDE ORDER
+##############################################################################
+FULL_BUILD_SPEC := Linux-ia64-debug
+MAKEINCS_OVERRIDE_SUFFIXES := default linux-ia64 linux-ia64-debug
+

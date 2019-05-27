@@ -1,0 +1,7 @@
+##############################################################################
+# LINUX IA64-OPT MAKE OVERRIDE INCLUDE ORDER
+##############################################################################
+FULL_BUILD_SPEC := Linux-ia64-opt
+MAKEINCS_OVERRIDE_SUFFIXES := \
+  default linux-ia64 linux-ia64-opt
+

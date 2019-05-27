@@ -1,0 +1,13 @@
+##############################################################################
+# GLVU MATH LIB TEST PROGRAM MAKEFILE
+##############################################################################
+BASE_DIR=../
+TYPE = App
+APP_NAME = quattest
+APP_SRCS = quattest.cpp
+
+LOCAL_LIBS = 
+
+WITH_FEATURES = 
+
+include $(BASE_DIR)/Ubermake.defs

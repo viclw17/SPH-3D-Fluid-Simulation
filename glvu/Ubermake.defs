@@ -1,0 +1,452 @@
+##############################################################################
+# UBER-MAKEFILE
+# --------------------------------------------------------------------------
+#      AUTHOR: William Baxter
+#        DATE: Oct 2000
+# DESCRIPTION: Makefile for use with GNU make.  Key feature is that
+#              all generated files (.o, .a, etc.) go in a Build dir
+#              outside of the main source tree, and under a platform- and
+#              build- specific directory so that multiple versions can
+#              be built and coexist.  User can define as many "versions" 
+#              as desired with files in the makeconfig dir.
+#
+#    EXAMPLES: make             - build opt version
+#              make opt         - same
+#              make debug       - build debug version
+#              make opt debug   - build both opt and debug versions
+#              make clean       - clean up the opt version
+#              make clean debug - clean up the debug version
+#              make debug clean - same thing
+#              make irix-mipspro-64-debug - make a very specific version
+#
+#              The make rules automatically pick build version(s) out
+#              of the list of targets specified so you can be careless
+#              about order.  It uses the names of the files in
+#              makeconfig to decide what valid build types are.
+# 
+#  For further documentation see README.makesystem
+##############################################################################
+
+# This makefile operates in two main phases:
+# - Pass 0 determines the versions of the code to build (debug,opt,etc.)
+#   and recursively calls make once for each of the build types
+# - Pass 1 includes appropriate variable definitions based on that build type
+#   and on the platform type.  It then performs the compilation
+#   (possibly recursively for subdirectories)
+
+# Let child makes see variables from this one
+export
+
+MAKEINCS_DIR = $(BASE_DIR)/makeconfig
+MAKEDEFS_DIR = $(MAKEINCS_DIR)/defs
+CC_SUFFIX = .c
+CCXX_SUFFIX =  .cpp .c++ .cxx .C .CC .cc
+INC_SUFFIX = .h .hpp .inl .H .hh .hxx .h++
+SRC_SUFFIX = $(CC_SUFFIX) $(CCXX_SUFFIX)
+
+
+##############################################################################
+# INCLUDE PLATFORM/BUILD-SPECIFIC MAKE DEFINITIONS
+##############################################################################
+ifdef BUILD_VER
+  ifeq ($(MAKELEVEL), 1) # we only need the basic definitions once
+    # First get list of include files needed
+    -include $(MAKEINCS_DIR)/makeincs.$(BUILD_VER)
+
+    # Now include all the specified includes
+    -include $(MAKEINCS_OVERRIDE_SUFFIXES:%=$(MAKEDEFS_DIR)/makedefs.%)
+    ifndef FULL_BUILD_SPEC
+      # Guess build spec if none was defined by makeincs.BUILD_VER
+      FULL_BUILD_SPEC := $(BUILD_VER)
+    endif
+  endif
+else # no BUILD_VER yet
+  -include $(MAKEDEFS_DIR)/makedefs.default
+endif # defined BUILD_VER
+
+
+
+##############################################################################
+# TOP-LEVEL PSEUDO-TARGETS
+##############################################################################
+ifeq ($(MAKELEVEL), 0)
+# Separate the build types from build targets
+AVAIL_BUILDS := $(wildcard $(MAKEINCS_DIR)/makeincs.*)
+AVAIL_BUILDS := $(patsubst $(MAKEINCS_DIR)/makeincs.%, %, $(AVAIL_BUILDS))
+BUILD_TYPES   := $(filter    $(AVAIL_BUILDS), $(MAKECMDGOALS) )
+BUILD_TARGETS := $(filter-out $(BUILD_TYPES), $(MAKECMDGOALS) )
+
+ifeq ($(strip $(BUILD_TYPES)),)  # no valid build types
+# Assume opt
+BUILD_TYPES := opt
+endif
+
+.PHONY: $(BUILD_TYPES) __force
+$(BUILD_TYPES): __force
+#	@echo "The build types are" $(BUILD_TYPES)
+#	@echo "The non-build types are" $(BUILD_TARGETS)
+	@echo "-- Building" $@ " version --"
+	@$(MAKE) -f $(BASE_DIR)/Ubermake.defs BUILD_VER=$@ $(BUILD_TARGETS)
+
+%: $(BUILD_TYPES)
+	@
+#	@echo "passing on:"  $@, "Build types:" $(BUILD_TYPES)
+#	@$(MAKE) -f $(BASE_DIR)/Ubermake.defs BUILD_VER=opt $(MAKECMDGOALS)
+
+__force:
+
+
+#.DEFAULT: $(BUILD_TYPES)
+#	@echo "default rule selected"
+#	@$(MAKE) -f $(BASE_DIR)/Ubermake.defs BUILD_VER=opt $(MAKECMDGOALS)
+
+# ifeq ($(strip $(BUILD_TYPES)),)  # no valid build types
+# %: 
+# 	@echo "No build types specified, assuming opt:"  $@
+# 	@$(MAKE) -f $(BASE_DIR)/Ubermake.defs BUILD_VER=opt $(MAKECMDGOALS)
+
+# # This is here just so that there's always SOME target
+# .PHONY: global_warming
+# global_warming: 
+
+# else
+# %:
+# 	@echo "Ignoring top-level target:" $@
+# 	@test 0
+# endif
+
+##############################################################################
+# REAL TARGETS
+##############################################################################
+else # MAKELEVEL 0
+
+OBJ_DEST_DIR := $(BASE_DIR)/Build/obj/$(FULL_BUILD_SPEC)
+APP_DEST_DIR := $(BASE_DIR)/Build/bin/$(FULL_BUILD_SPEC)
+LIB_DEST_DIR := $(BASE_DIR)/Build/lib/$(FULL_BUILD_SPEC)
+INC_DEST_DIR := $(BASE_DIR)/Build/include
+DEP_DEST_DIR := $(OBJ_DEST_DIR)
+
+# Only let directories be dependencies if they don't exist yet
+OBJ_DEST_DIR_DEP := $(shell [ -d $(OBJ_DEST_DIR) ] || echo $(OBJ_DEST_DIR))
+APP_DEST_DIR_DEP := $(shell [ -d $(APP_DEST_DIR) ] || echo $(APP_DEST_DIR))
+LIB_DEST_DIR_DEP := $(shell [ -d $(LIB_DEST_DIR) ] || echo $(LIB_DEST_DIR))
+INC_DEST_DIR_DEP := $(shell [ -d $(INC_DEST_DIR) ] || echo $(INC_DEST_DIR))
+DEP_DEST_DIR_DEP := $(shell [ -d $(DEP_DEST_DIR) ] || echo $(DEP_DEST_DIR))
+
+# Compute extra 'feature' flags
+FEATURE_SCRIPT := $(MAKEINCS_DIR)/featureflags.sh "$(WITH_FEATURES)"
+FEATURE_CPPFLAGS := $(shell $(FEATURE_SCRIPT) CPPFLAGS $(FULL_BUILD_SPEC))
+FEATURE_LDFLAGS :=  $(shell $(FEATURE_SCRIPT) LDFLAGS $(FULL_BUILD_SPEC))
+FEATURE_LIBS :=     $(shell $(FEATURE_SCRIPT) LIBS $(FULL_BUILD_SPEC))
+
+#---- TYPE Lib or App -------------------------------------------------------#
+#ifneq ( $(filter $(TYPE), Lib App),)
+#
+#endif
+#---- TYPE Lib --------------------------------------------------------------#
+
+ifeq ($(TYPE),Lib)
+
+# To handle multiple lib names, we do things in two passes:
+# - Top level recursively calls make for each Lib target, setting 
+#   TARGET_PREFIX, and finally makes header file symlinks.
+# - Sub-makes generate the lists of SRC, OBJ and DEP files and apply all
+#    the rules to make the specific TARGET_PREFIX target.
+# It's called TARGET_PREFIX because it is the prefix used on _SRCS variable
+# name to differentiate the sources of different targets.
+
+# Allow either LIB_NAMES or LIB_NAME to be used externally.
+# only LIB_NAMES matters internally
+ifndef LIB_NAMES
+  ifdef LIB_NAME
+    LIB_NAMES := $(LIB_NAME)
+  endif
+  # It is not an error for neither LIB_NAME or LIB_NAMES to be defined. 
+  # This is the case for C++ template libraries that consist of nothing but
+  # headers.
+endif
+
+HEADER_SYMLINKS = $(PUBLIC_HEADERS:%=$(INC_DEST_DIR)/%)
+# Figure out the relative location to link headers to
+# CURDIR gives the absolute dir to link to, and BASE_DIR
+# tells relative location of the base dir from CURDIR
+# but we need relative location of CURDIR from 
+# BASE_DIR/Build/include
+#
+# ALERT: THERE'S A BUG IN pwd! CERTAIN COMBINATIONS OF 
+# pwd'ing in a mounted NFS filesystem from an XFS file system
+# will return bogus values for pwd.  
+# The shell's $PWD doesn't work either.  And system calls return
+# the wrong thing too, so there really isn't anything we can do about it.
+ABS_BASE_DIR = $(shell cd $(BASE_DIR) && pwd)
+
+# FIGURE OUT THE RELATIVE PATH TO LINK TO FROM THE Build/include DIRECTORY.
+# STRIP ABS_BASE_DIR OFF OF CURDIR, THEN PREPEND THE ../../.  It is important
+# TO USE THIS EXACT RELATIVE SPECIFICATION SO THAT THE ENTIRE TREE CAN BE
+# MOVED WITHOUT BREAKING SYMLINKS.
+REL_HEADER_DIR = ../../$(CURDIR:$(ABS_BASE_DIR)/%=%)
+
+#------------------- First Lib Pass ---
+ifndef TARGET_PREFIX
+
+.PHONY: all
+all: $(LIB_NAMES) $(HEADER_SYMLINKS)
+
+$(LIB_NAMES):
+	@$(MAKE) $(MAKECMDGOALS) TARGET_PREFIX=$@
+
+# LIB INCLUDES RULE
+$(INC_DEST_DIR)/% : % $(INC_DEST_DIR_DEP)
+#	@echo SHELL $(SHELL)
+#	@echo PWD $(PWD)
+#	@echo CURDIR $(CURDIR)
+#	@echo CURDIR_ORIGIN $(CURDIR_ORIGIN)
+#	@echo BASE_DIR $(BASE_DIR)
+#	@echo ABS_BASE_DIR $(ABS_BASE_DIR)
+#	@echo REL_HDR_DIR $(REL_HEADER_DIR)
+#	@echo "@" $@ 
+#	@echo "<" $< 
+	$(RM) $(INC_DEST_DIR)/$(<F)
+	$(LNSYM) $(REL_HEADER_DIR)/$< $(INC_DEST_DIR)/$(<F)
+
+# BIZZARE AND INEXPLICABLE GNU MAKE BEHAVIOR:
+# The above rule for linking headers into the Build/include dir works
+# fine for most headers, but if you are using a VPATH it doesn't work
+# by itself.  Say the header foo.h is found via VPATH in foo/foo.hpp.
+# We would like the dep variable $< to contain foo/foo.h so we symlink
+# to the right place.  BUT if there are no implicit rules for .hpp
+# files then make will just set $< to 'foo.hpp'.  Make ONLY sets $< to
+# 'foo/foo.hpp' if there is some implicit rule that matches %.hpp.  It
+# doesn't invoke that rule.  I have no idea why it must be there.
+# So here are a bunch of do-nothing implicit rules for header file
+# types to make VPATH includes work.  (note that .d file generation
+# doesn't suffer this problem because there *are* built-in implicit
+# rules for typical source file extensions .c, .cpp, etc.
+%.h:
+%.hpp:
+%.inl:
+%.H:
+%.hh:
+%.hxx:
+%.h++:
+
+# LIB INCLUDES DIR RULE
+$(INC_DEST_DIR): 
+	@$(MKDIR_P) $(INC_DEST_DIR)
+
+# Make all targets go through LIB_NAMES recursion
+%: $(LIB_NAMES)
+	@
+
+#------------------- Second Lib Pass ---
+else
+
+# Build one lib (TARGET_PREFIX) out of the list of libs
+
+# Turn list of srcs into list of .o files
+TARGET_SRCS := $(LIB_SRCS) $($(TARGET_PREFIX)_SRCS)
+TARGET_OBJS := $(foreach SUFF, $(SRC_SUFFIX), $(filter %.o, $(TARGET_SRCS:$(SUFF)=.o)))
+#TARGET_OBJS := $(notdir $(TARGET_OBJS) )
+TARGET_OBJS := $(TARGET_OBJS:%=$(OBJ_DEST_DIR)/%)
+
+# Target dependencies
+TARGET_DEPS := $(foreach SUFF, $(SRC_SUFFIX), $(filter %.d, $(TARGET_SRCS:$(SUFF)=.d)))
+# TARGET_DEPS := $(notdir $(TARGET_DEPS))
+TARGET_DEPS := $(TARGET_DEPS:%=$(DEP_DEST_DIR)/%)
+
+FULL_LIB_TARGET = $(LIB_DEST_DIR)/lib$(TARGET_PREFIX).a
+
+all: $(FULL_LIB_TARGET)
+
+# LIB RULE
+$(FULL_LIB_TARGET): $(LIB_DEST_DIR_DEP) $(TARGET_OBJS) $(TARGET_DEPS)
+#	@echo Build Spec: $(FULL_BUILD_SPEC)
+	$(AR) $(ARFLAGS) $@ $(TARGET_OBJS)
+
+# LIB DIR RULE
+$(LIB_DEST_DIR):
+	@$(MKDIR_P) $(LIB_DEST_DIR)
+
+clean:
+	@$(RM) $(TARGET_OBJS) $(FULL_LIB_TARGET) $(HEADER_SYMLINKS) $(TARGET_DEPS) $(CLEAN_EXTRA)
+
+endif # Second pass
+endif # Lib
+
+#---- TYPE App --------------------------------------------------------------#
+ifeq ($(TYPE),App)
+
+# To handle multiple app names, we do things in two passes:
+# - Top level recursively calls make for each App target, setting APP_PREFIX
+# - Sub-makes generate the lists of SRC, OBJ and DEP files and apply all
+#    the rules to make the APP_PREFIX target. 
+
+# Allow either APP_NAMES or APP_NAME to be used externally.
+# only APP_NAMES matters internally
+
+ifndef APP_NAMES
+  ifdef APP_NAME
+    APP_NAMES := $(APP_NAME)
+  else
+    .PHONY: _error
+    %: _error
+	@
+    _error:
+	@echo ERROR: App TYPE makefile must define APP_NAMES!
+  endif
+endif
+
+# Optimization: if only one APP_NAME defined, don't do recursion
+ifeq ($(words $(APP_NAMES)), 1)
+APP_PREFIX:=$(strip $(APP_NAMES))
+endif
+
+#------------------- First App Pass ---
+ifndef APP_PREFIX
+
+.PHONY: all
+all: $(APP_NAMES)
+
+$(APP_NAMES):
+	@$(MAKE) $(MAKECMDGOALS) APP_PREFIX=$@
+
+# Make all targets go through APP_NAMES recursion
+%: $(APP_NAMES)
+	@
+
+#------------------- Second App Pass ---
+else
+
+# Turn list of srcs into list of .o files
+TARGET_SRCS := $(APP_SRCS) $($(APP_PREFIX)_SRCS)
+TARGET_OBJS := $(foreach SUFF, $(SRC_SUFFIX), $(filter %.o, $(TARGET_SRCS:$(SUFF)=.o)))
+TARGET_OBJS := $(TARGET_OBJS:%=$(OBJ_DEST_DIR)/%)
+
+# Target dependencies
+TARGET_DEPS := $(foreach SUFF, $(SRC_SUFFIX), $(filter %.d, $(TARGET_SRCS:$(SUFF)=.d)))
+TARGET_DEPS := $(TARGET_DEPS:%=$(DEP_DEST_DIR)/%)
+
+# Build lib parts of link command
+COMBO_LOCAL_LIBS := $(LOCAL_LIBS) $($(APP_PREFIX)_LOCAL_LIBS)
+COMBO_SYS_LIBS :=   $(SYS_LIBS)   $($(APP_PREFIX)_SYS_LIBS) 
+LOCAL_LINK_LIBS := $(COMBO_LOCAL_LIBS:%=$(LIB_DEST_DIR)/lib%.a)
+SYS_LINK_LIBS := $(COMBO_SYS_LIBS:%=-l%)
+APP_FULL_PATH := $(APP_DEST_DIR)/$(APP_PREFIX)
+APP_SYMLINK_PATH := $(BASE_DIR)/Build/bin/$(APP_PREFIX)
+
+.PHONY: all
+all: $(APP_FULL_PATH) $(APP_SYMLINK_PATH)
+
+# APP RULE
+$(APP_FULL_PATH): $(APP_DEST_DIR_DEP) $(TARGET_OBJS) $(LOCAL_LINK_LIBS) $(TARGET_DEPS)
+#	@echo Build Spec: $(FULL_BUILD_SPEC)
+	$(CXX) $(TARGET_OBJS) $(LDFLAGS) $(FEATURE_LDFLAGS) $(LOCAL_LINK_LIBS) $(SYS_LINK_LIBS) $(FEATURE_LIBS) -o $@
+
+# APP DIR RULE
+$(APP_DEST_DIR): 
+	@$(MKDIR_P) $(APP_DEST_DIR)
+
+# APP SYMLINK RULE
+$(APP_SYMLINK_PATH): $(APP_FULL_PATH)
+	$(RM) $(APP_SYMLINK_PATH)
+	$(LNSYM) $(FULL_BUILD_SPEC)/$(APP_PREFIX) $(BASE_DIR)/Build/bin
+
+clean:
+	@$(RM) $(TARGET_OBJS) $(APP_FULL_PATH) $(TARGET_DEPS)
+
+endif #------------------- End Second App Pass ---
+
+endif # App
+
+#---- TYPE Tree -------------------------------------------------------------#
+
+ifeq ($(TYPE),Tree)
+# Tree type is easy, just call make recursively on subdirs
+unexport TYPE
+
+$(TREE_DIRS): __force
+#	@echo Recurring into one of: $(TREE_DIRS)
+	@$(MAKE)  -C $@ $(MAKECMDGOALS)
+
+%: $(TREE_DIRS) ;
+
+.PHONY: monkey_brains $(TREE_DIRS) __force
+__force:
+endif # Tree
+#----------------------------------------------------------------------------#
+
+#---- BASIC RULES -----------------------------------------------------------#
+# Building .o from various source files
+define CXXCOMPILE
+	$(CXX) -c $(CPPFLAGS) $(FEATURE_CPPFLAGS) -I. -I$(INC_DEST_DIR) $(CXXFLAGS)  $< -o $@
+endef
+
+$(OBJ_DEST_DIR)/%.o: %.c $(OBJ_DEST_DIR_DEP) 
+	$(CC) -c $(CPPFLAGS) $(FEATURE_CPPFLAGS) -I. -I$(INC_DEST_DIR) $(CFLAGS) $< -o $@
+$(OBJ_DEST_DIR)/%.o: %.cpp $(OBJ_DEST_DIR_DEP) 
+	$(CXXCOMPILE)
+$(OBJ_DEST_DIR)/%.o: %.C   $(OBJ_DEST_DIR_DEP) 
+	$(CXXCOMPILE)
+$(OBJ_DEST_DIR)/%.o: %.cc  $(OBJ_DEST_DIR_DEP) 
+	$(CXXCOMPILE)
+$(OBJ_DEST_DIR)/%.o: %.cxx $(OBJ_DEST_DIR_DEP) 
+	$(CXXCOMPILE)
+$(OBJ_DEST_DIR)/%.o: %.c++ $(OBJ_DEST_DIR_DEP) 
+	$(CXXCOMPILE)
+$(OBJ_DEST_DIR)/%.o: %.CC  $(OBJ_DEST_DIR_DEP) 
+	$(CXXCOMPILE)
+
+$(OBJ_DEST_DIR): 
+	$(MKDIR_P) $(OBJ_DEST_DIR)
+
+# Use g++ everywhere to make dependencies.  g++ exists everywhere so that's
+# not really a portability issue.  Use -M instead of -MM.  The former 
+# includes all the system headers in the dependencies making the .d files
+# large, but the latter ignores anything #included with <name.h> instead 
+# of "name.h". 
+define CXXGENDEPS
+	@echo Generating deps for $<
+	@$(SHELL) -ec 'g++ -M -I. $(DFLAGS) $(CPPFLAGS) $(FEATURE_CPPFLAGS) -I$(INC_DEST_DIR) $< \
+          | sed "s@\($*\)\.o[ :]*@$(OBJ_DEST_DIR)/\1.o $@ : @g" > $@; \
+           [ -s $@ ] || echo rm -f $@'
+endef
+
+$(DEP_DEST_DIR)/%.d: %.c   $(DEP_DEST_DIR_DEP)
+	$(CXXGENDEPS)
+$(DEP_DEST_DIR)/%.d: %.cpp $(DEP_DEST_DIR_DEP)
+	$(CXXGENDEPS)
+$(DEP_DEST_DIR)/%.d: %.cxx $(DEP_DEST_DIR_DEP)
+	$(CXXGENDEPS)
+$(DEP_DEST_DIR)/%.d: %.C   $(DEP_DEST_DIR_DEP)
+	$(CXXGENDEPS)
+$(DEP_DEST_DIR)/%.d: %.CC  $(DEP_DEST_DIR_DEP)
+	$(CXXGENDEPS)
+$(DEP_DEST_DIR)/%.d: %.cc  $(DEP_DEST_DIR_DEP)
+	$(CXXGENDEPS)
+$(DEP_DEST_DIR)/%.d: %.c++ $(DEP_DEST_DIR_DEP)
+	$(CXXGENDEPS)
+
+# Include .d dependency files if there exist any and we aren't cleaning
+ifeq ($(strip $(filter clean,$(MAKECMDGOALS))),)
+  ifneq ($(strip $(TARGET_DEPS)),)
+    -include $(TARGET_DEPS)
+  endif
+endif
+
+
+endif # MAKELEVEL 0
+
+
+## Keep make from searching for implicit rules to generate missing makefiles
+GNUMakefile Makefile Ubermake.defs $(MAKEDEFS_DIR)/makedefs.%:
+	@echo "Ignoring" $@
+
+
+#-----------------------------------------------------------------------------
+# $Id: Ubermake.defs,v 1.4 2001/10/06 16:27:54 baxter Exp $
+#-----------------------------------------------------------------------------
+# Emacs stuff
+#   Local Variables:
+#   mode: makefile
+#   End:
+#-----------------------------------------------------------------------------

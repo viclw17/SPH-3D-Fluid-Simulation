@@ -1,0 +1,6 @@
+##############################################################################
+# GENERIC GNU DEBUG MAKE OVERRIDE INCLUDE ORDER
+##############################################################################
+FULL_BUILD_SPEC := $(shell uname)-gnu-debug
+MAKEINCS_OVERRIDE_SUFFIXES := default default-debug generic-gnu
+

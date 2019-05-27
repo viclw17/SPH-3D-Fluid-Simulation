@@ -1,0 +1,23 @@
+##############################################################################
+# META-MAKEFILE TO DECIDE WHICH MAKEFILES TO INCLUDE
+##############################################################################
+
+# May require some edits now and then, but the idea is that once you
+# set this up right, you can effortlessly switch back and forth
+# between the platforms you usually use without having to touch any
+# configs
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME),IRIX64)
+include $(MAKEINCS_DIR)/makeincs.irix-mipspro-64-opt
+endif
+
+ifeq ($(UNAME),Linux)
+HASECC := $(shell rpm -qa | grep intel-ecc)
+ifeq ($(HASECC),)
+     include $(MAKEINCS_DIR)/makeincs.generic-gnu-opt
+else
+     include $(MAKEINCS_DIR)/makeincs.linux-ia64-opt
+endif
+endif

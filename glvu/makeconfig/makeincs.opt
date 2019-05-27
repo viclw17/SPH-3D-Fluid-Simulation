@@ -1,0 +1,23 @@
+##############################################################################
+# META-MAKEFILE TO DECIDE WHICH MAKEFILES TO INCLUDE
+##############################################################################
+
+# May require some edits now and then, but the idea is that once you
+# set this up right, you can effortlessly switch back and forth
+# between the platforms you usually use without having to touch any
+# configs
+
+UNAME := $(shell uname)
+
+ifeq ($(UNAME),Linux)
+include $(MAKEINCS_DIR)/makeincs.generic-gnu-opt
+endif
+
+ifeq (CYGWIN, $(findstring CYGWIN,$(UNAME)))
+include $(MAKEINCS_DIR)/makeincs.generic-gnu-opt
+endif
+
+ifeq (IRIX, $(findstring IRIX,$(UNAME)))
+include $(MAKEINCS_DIR)/makeincs.irix-mipspro-32-opt
+endif
+

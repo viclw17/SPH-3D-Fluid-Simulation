@@ -1,0 +1,13 @@
+##############################################################################
+# GLVUEXT LIB THREAD MAKEFILE
+##############################################################################
+BASE_DIR=..
+TYPE = App
+APP_NAME = threadtest
+APP_SRCS = threadtest.cpp
+
+LOCAL_LIBS = glvuthread
+
+WITH_FEATURES = threads
+
+include $(BASE_DIR)/Ubermake.defs

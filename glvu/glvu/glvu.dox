@@ -1,0 +1,73 @@
+/* 
+  This file contains no source code.  It serves as the intro 
+  documentation page for QGLVU. 
+*/
+
+/*!
+  \mainpage GLVU
+
+  \section description Description:
+
+  <a href = "http://www.cs.unc.edu/~walk/software/glvu/">GLVU</a>
+  is a collection of C++/OpenGL viewer libraries that support many of 
+  the common functions needed by graphics programmers.  It was written 
+  by Kenny Hoff, Bill Baxter, Wes Hunt, Mark Harris and others.
+
+  GLVU provides efficient matrix and vector math classes, a powerful
+  camera class, image support, path recording and playback, timers,
+  flexible and powerful mouse input and navigation, and more.  See the
+  \ref screenshots or \ref GLVU sections for a taste.
+
+  There are two flavors of GLVU to choose from, the first is what you
+  might call "GLVU classic" which uses 
+  <A HREF="http://www.opengl.org/developers/documentation/glut/index.html">
+  GLUT</A> as the underlying windowing toolkit.  Now there is also
+  <A HREF="../../qglvu/html/index.html">QGLVU</A>, which replaces the GLUT 
+  windowing layer with the more rich and object-oriented 
+  <a href = "http://www.trolltech.com">Qt</a>.
+
+  \section credits Credits:
+  \author Kenny Hoff \<hoff at cs.unc.edu\>
+  \author Bill Baxter \<baxter at billbaxter.com\>
+  \author Wes Hunt \<hunt at cs.unc.edu\>
+  \author Mark Harris <harrism at cs.unc.edu>
+  \par
+    (apologies to those forgotten).
+    
+  \section downloads Downloads
+  Currently access is via CVS only within UNC computer science.  Set your 
+  CVS repository to ~walk/cvs and checkout modules glvu_all.
+  For <A HREF="../../qglvu/html/index.html">QGLVU</A> checkout glvu/qglvu.
+
+  Web downloads are available 
+  <a href = "http://www.cs.unc.edu/~walk/software/glvu/">here</a>.
+
+  \section installonmainpage Installation
+  Install notes are on a separate page, \ref install.
+  
+  \section screenshotsonmainpage Screenshots
+  Screenshots are on a separate page, \ref screenshots.
+*/
+
+
+/*!
+  \page install Installation
+
+  \section requirements Requirements
+  GLVU requires the following packages:
+  <li> <a href = "http://www.cs.unc.edu/~walk/software/glvu/">GLVU</a>
+  <li> <A HREF="http://www.opengl.org/developers/documentation/glut/index.html"
+  GLUT</A> for GLVU classic.
+  
+  \section examples Examples
+  Once you have built and installed the library, you can build and run 
+  the examples, which are kept in the examples and qglvu/examples
+  directories. 
+*/
+
+
+/*!
+  \page screenshots Screenshots
+*/
+
+

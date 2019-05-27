@@ -1,0 +1,13 @@
+# STANDARD PROGRAMS AND DEFINITIONS
+CC = gcc
+CXX = g++
+AR = ar
+LEX = lex
+YACC = yacc
+LD = ld
+LS = ls
+RANLIB =
+MKDIR = mkdir
+MKDIR_P = mkdir -p
+LN = ln
+LNSYM = ln -s

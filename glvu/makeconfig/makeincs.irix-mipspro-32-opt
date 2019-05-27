@@ -1,0 +1,7 @@
+##############################################################################
+# IRIX MIPSPRO-32-OPT MAKE OVERRIDE INCLUDE ORDER
+##############################################################################
+FULL_BUILD_SPEC := irix-mipspro-32-opt
+MAKEINCS_OVERRIDE_SUFFIXES := \
+  default default-opt irix-mipspro
+

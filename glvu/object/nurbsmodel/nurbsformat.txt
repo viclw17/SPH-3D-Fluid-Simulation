@@ -1,0 +1,61 @@
+IFF ??? means that the field is only present in the input file if the
+curve is of type ???.
+
+//--------------------------------------------------------------------
+// Subodh Kumar's NURBS format (.nurbs)
+//--------------------------------------------------------------------
+
+// NURBS SURFACE DEFINITION
+int             U degree of patch
+int             V degree of patch
+int             # of knots in U
+double*         U knot values array
+int             # of knots in V
+double*         V knot values array
+int             # of U control points
+int             # of V control points
+double[4]*      control points array (4D because 3D rational curve)
+int[3]          RGB color (0-255 per component)
+int             # of trim loops
+
+  // TRIM LOOP DEFINITION (COMPOSED OF PIECEWISE-LINEAR OR NURBS CURVE 
+  // SEGMENTS FORMING A CLOSED LOOP)
+  int           number of splines/segments
+
+    // TRIM LOOP SEGMENT (EITHER PWL OR NURBS)
+    int         index of adjacent patch (-1 if unknown)
+    int         index of adjacent trim curve (-1 if unknown)
+    int         degree of trim curve
+    int         type (2 if NURBS, 1 if linear)
+    int         # of knots, IFF NURBS
+    double*     knot values, IFF NURBS
+    int         # of control points
+    double[3]*  control points, IFF NURBS
+    double[2]*  control points, IFF PWL
+
+
+//--------------------------------------------------------------------
+// Subodh Kumar's BEZIER format (.bez)
+//--------------------------------------------------------------------
+
+// RATIONAL BEZIER SURFACE DEFINITION
+int         U degree of patch
+int         V degree of patch
+double[4]*  control points array (4D because 3D rational curve)
+int[3]      RGB color (0-255 per component)
+int         # of trim loops
+
+  // TRIM LOOP DEFINITION (COMPOSED OF PIECEWISE-LINEAR OR BEZIER CURVE 
+  // SEGMENTS FORMING A CLOSED LOOP)
+  int       number of splines/segments
+
+    // TRIM LOOP SEGMENT (EITHER PWL OR BEZIER)
+    int         index of adjacent patch (-1 if unknown)
+    int         index of adjacent trim curve (-1 if unknown)
+    int         degree of trim curve
+    int         curve type (2 if Bezier, 1 if piecewise linear)
+    double[3]*  control points array, IFF BEZIER
+    double[2]*  control points array, IFF PWL
+
+
+

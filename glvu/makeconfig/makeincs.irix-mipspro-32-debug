@@ -1,0 +1,7 @@
+##############################################################################
+# IRIX MIPSPRO-32-DEBUG MAKE OVERRIDE INCLUDE ORDER
+##############################################################################
+FULL_BUILD_SPEC := irix-mipspro-32-debug
+MAKEINCS_OVERRIDE_SUFFIXES := \
+ default default-debug irix-mipspro
+

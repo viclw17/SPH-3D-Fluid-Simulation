@@ -1,0 +1,31 @@
+##############################################################################
+# GLVU EXAMPLES MAKEFILE
+##############################################################################
+TYPE=App
+BASE_DIR=..
+
+# Uncomment all the apps you'd like to build
+APP_NAMES :=
+APP_NAMES += simpleviewer
+
+##############################################################################
+
+simpleviewer_SRCS = simpleviewer.cpp
+
+# Which libs in this build tree do we need?
+# These identifiers are turned into lib*.a names and added to the link line.
+LOCAL_LIBS = glvuglvu glvucamera glvumathobjs glvumath
+# Add some extra LOCAL_LIBS for some apps
+GLVUOBJ_LIBS := glvuobject glvuglutils glvuimages glvutimer
+simpleviewer_LOCAL_LIBS := $(GLVUOBJ_LIBS) plymodel
+
+# Set up proper includes and libs to link with
+WITH_FEATURES := glut
+
+# WITH_FEATURES handles most things, but if you need other 
+# libs you can define add this.  To get '-lfoo' added just put 'foo'
+# SYS_LIBS = foo
+
+include $(BASE_DIR)/Ubermake.defs
+
+

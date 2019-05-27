@@ -1,0 +1,6 @@
+##############################################################################
+# GENERIC GNU OPT MAKE OVERRIDE INCLUDE ORDER
+##############################################################################
+FULL_BUILD_SPEC := $(shell uname)-gnu-opt
+MAKEINCS_OVERRIDE_SUFFIXES := default default-opt generic-gnu
+
