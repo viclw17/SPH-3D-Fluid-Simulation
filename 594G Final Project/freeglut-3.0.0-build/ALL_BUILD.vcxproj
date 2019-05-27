@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A741328A-B4A6-31A4-A7C1-7B1BDB79302B}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\include;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\include;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\include;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\include;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0" "-BF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build" --check-stamp-file "F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCXXCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeRCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeSystem.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\config.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.pc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.rc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src\fg_version.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0" "-BF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build" --check-stamp-file "F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCXXCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeRCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeSystem.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\config.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.pc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.rc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src\fg_version.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0" "-BF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build" --check-stamp-file "F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCXXCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeRCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeSystem.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\config.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.pc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.rc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src\fg_version.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0" "-BF:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build" --check-stamp-file "F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0-build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:/Program Files/Git/git/SPH-3D-Fluid-Simulation/594G Final Project/freeglut-3.0.0/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\GNUInstallDirs.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.14\Modules\Platform\WindowsPaths.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeCXXCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeRCCompiler.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\3.14.4\CMakeSystem.cmake;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\config.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.pc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\freeglut.rc.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\src\fg_version.h.in;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\ZERO_CHECK.vcxproj">
+      <Project>{F0855FF3-3982-3536-A26E-5312E050A135}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CallbackMaker.vcxproj">
+      <Project>{68CB964B-6CF7-3F46-A0B8-FEAE85117291}</Project>
+      <Name>CallbackMaker</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CallbackMaker_static.vcxproj">
+      <Project>{9CF2A1DB-A638-333C-AE35-D43043B3DC41}</Project>
+      <Name>CallbackMaker_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Fractals.vcxproj">
+      <Project>{A08DF81A-7331-3B9E-98FA-BE66980061CE}</Project>
+      <Name>Fractals</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Fractals_random.vcxproj">
+      <Project>{E94A77F5-B6A4-31EB-A12B-AE6B1E520B4E}</Project>
+      <Name>Fractals_random</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Fractals_random_static.vcxproj">
+      <Project>{C8D0D80B-7D48-318D-BC58-F618C5596EBE}</Project>
+      <Name>Fractals_random_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Fractals_static.vcxproj">
+      <Project>{430564E6-6B96-3481-B1AC-D800882D3D1B}</Project>
+      <Name>Fractals_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Lorenz.vcxproj">
+      <Project>{41B707E7-F897-37EA-BC49-BE30898D7519}</Project>
+      <Name>Lorenz</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Lorenz_static.vcxproj">
+      <Project>{970E3E29-C117-3319-8508-D1EC406D8FA4}</Project>
+      <Name>Lorenz_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\One.vcxproj">
+      <Project>{BCCE8504-7CDC-3893-9336-7B7F45C8841B}</Project>
+      <Name>One</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\One_static.vcxproj">
+      <Project>{88DDAB3C-BE37-300F-A4E7-CC116B1D7D9D}</Project>
+      <Name>One_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Resizer.vcxproj">
+      <Project>{5A7EE6E5-37D8-3A3F-8728-6E40838ECA9E}</Project>
+      <Name>Resizer</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\Resizer_static.vcxproj">
+      <Project>{5C1FB480-A138-3640-9933-D63AADE54B69}</Project>
+      <Name>Resizer_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\freeglut.vcxproj">
+      <Project>{26F9A584-483B-329B-89CB-FBBCE02A2752}</Project>
+      <Name>freeglut</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\freeglut_static.vcxproj">
+      <Project>{CE853954-9F28-34EC-AE22-755854582678}</Project>
+      <Name>freeglut_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\multi-touch.vcxproj">
+      <Project>{05E9FD63-71FA-334C-B0AF-DA99D67BD177}</Project>
+      <Name>multi-touch</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\multi-touch_static.vcxproj">
+      <Project>{F1906A70-80D3-3C4C-8C30-FBE27D68BA94}</Project>
+      <Name>multi-touch_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\shapes.vcxproj">
+      <Project>{E312F05F-C6CD-3992-9464-1FBB2CA20FA7}</Project>
+      <Name>shapes</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\shapes_static.vcxproj">
+      <Project>{744FB92B-7149-3641-8698-28C2307897CF}</Project>
+      <Name>shapes_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\smooth_opengl3.vcxproj">
+      <Project>{FCB774B6-7966-377B-8992-71248302A4BD}</Project>
+      <Name>smooth_opengl3</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\smooth_opengl3_static.vcxproj">
+      <Project>{43ABE2CF-97F1-36E5-B421-9716D1C1A14D}</Project>
+      <Name>smooth_opengl3_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\subwin.vcxproj">
+      <Project>{F3B300FB-3612-3CC6-A832-99D5AB7A71A4}</Project>
+      <Name>subwin</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\subwin_static.vcxproj">
+      <Project>{6992D518-2F86-39A1-A03C-940443743915}</Project>
+      <Name>subwin_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\timer.vcxproj">
+      <Project>{CFF7F925-2326-332F-85FF-94A3EDCC4AFB}</Project>
+      <Name>timer</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\timer_static.vcxproj">
+      <Project>{41C4C707-16D3-34B9-9F93-B89A1CFC17AE}</Project>
+      <Name>timer_static</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

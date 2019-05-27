@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0-build\CMakeFiles\b2579dda7ab75215dcdb71e9a989b1f3\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3225C3F1-9048-3240-A60C-B237A4C10B57}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
