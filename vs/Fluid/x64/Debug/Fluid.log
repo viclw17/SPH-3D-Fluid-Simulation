@@ -1,35 +1,3 @@
-﻿  FIELD_2D.cpp
-  FIELD_3D.cpp
-  glvu.cpp
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\VEC3F.h(56,17): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-  HW1.cpp
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\glvu\glvu.h(360,15): warning C4244:  'return': conversion from '__int64' to 'int', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\glvu\glvu.h(360,15): warning C4244:  'return': conversion from '__int64' to 'int', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\VEC3F.h(56,17): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\HW1.cpp(274,35): warning C4305:  'initializing': truncation from 'double' to 'GLfloat'
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\HW1.cpp(318,23): warning C4244:  '=': conversion from '__time64_t' to 'int', possible loss of data
-  PARTICLE.cpp
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\HW1.cpp(345,17): warning C4244:  '=': conversion from '__time64_t' to 'int', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\VEC3F.h(56,17): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE.cpp(7,36): warning C4305:  'argument': truncation from 'double' to 'float'
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE.cpp(8,34): warning C4305:  'argument': truncation from 'double' to 'float'
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE.cpp(79,17): warning C4244:  'argument': conversion from 'double' to 'GLfloat', possible loss of data
-  PARTICLE_SYSTEM.cpp
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE.cpp(80,17): warning C4244:  'argument': conversion from 'double' to 'GLfloat', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\VEC3F.h(56,17): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(216,30): warning C4018:  '<': signed/unsigned mismatch
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(217,32): warning C4018:  '<': signed/unsigned mismatch
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(218,34): warning C4018:  '<': signed/unsigned mismatch
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(280,40): warning C4305:  'argument': truncation from 'double' to 'float'
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(281,43): warning C4305:  'argument': truncation from 'double' to 'float'
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(359,54): warning C4018:  '<': signed/unsigned mismatch
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(664,21): warning C4018:  '<': signed/unsigned mismatch
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(674,23): warning C4018:  '<': signed/unsigned mismatch
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(698,21): warning C4018:  '<': signed/unsigned mismatch
-  WALL.cpp
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\PARTICLE_SYSTEM.cpp(713,23): warning C4018:  '<': signed/unsigned mismatch
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\VEC3F.h(56,17): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\WALL.cpp(30,15): warning C4244:  'argument': conversion from 'double' to 'GLfloat', possible loss of data
-  Generating Code...
-F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\WALL.cpp(32,13): warning C4244:  'argument': conversion from 'double' to 'GLfloat', possible loss of data
-  Fluid.vcxproj -> F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\vs\Fluid\x64\Debug\Fluid.exe
+﻿  glvu.cpp
+D:\Git\SPH-3D-Fluid-Simulation\594G Final Project\glvu\glvu.h(360): warning C4244: 'return': conversion from '__int64' to 'int', possible loss of data
+  Fluid.vcxproj -> D:\Git\SPH-3D-Fluid-Simulation\vs\Fluid\x64\Debug\Fluid.exe
