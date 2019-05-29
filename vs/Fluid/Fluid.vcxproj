@@ -74,16 +74,16 @@
     <IncludePath>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\libs;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\include;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\glvu;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\libs;$(LibraryPath)</LibraryPath>
-    <IncludePath>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\libs;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\include;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\glvu;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\..\..\594G Final Project\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\..\..\594G Final Project\freeglut-3.0.0\include;$(SolutionDir)\..\..\594G Final Project\glvu;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(SolutionDir)\..\..\594G Final Project\libs;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)\..\..\594G Final Project\freeglut-3.0.0\include;$(SolutionDir)\..\..\594G Final Project\glvu;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\libs;$(LibraryPath)</LibraryPath>
-    <IncludePath>F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\libs;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\freeglut-3.0.0\include;F:\Program Files\Git\git\SPH-3D-Fluid-Simulation\594G Final Project\glvu;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\..\..\594G Final Project\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\..\..\594G Final Project\freeglut-3.0.0\include;$(SolutionDir)\..\..\594G Final Project\glvu;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
